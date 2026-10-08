@@ -18,9 +18,17 @@
       </a-assets>
 
       <a-marker type="pattern" url="marcador_minion_simple.patt">
-        <!-- Minion de pie sobre el marcador -->
-        <a-image src="#minion" position="0 0.8 0" width="1.210" height="1.6"
-                 material="transparent: true; alphaTest: 0.1; side: double"></a-image>
+        <!-- Minion bailando: rebota, se balancea, gira y se estira al ritmo -->
+        <a-entity animation__rebote="property: position; from: 0 0 0; to: 0 0.3 0; dir: alternate; dur: 350; loop: true; easing: easeInOutQuad">
+          <a-entity animation__balanceo="property: rotation; from: 0 0 -12; to: 0 0 12; dir: alternate; dur: 700; loop: true; easing: easeInOutSine">
+            <a-entity animation__giro="property: rotation; from: 0 -30 0; to: 0 30 0; dir: alternate; dur: 1400; loop: true; easing: easeInOutSine">
+              <a-entity animation__estirar="property: scale; from: 1 1 1; to: 1.08 0.92 1; dir: alternate; dur: 350; loop: true; easing: easeInOutQuad">
+                <a-image src="#minion" position="0 0.8 0" width="1.210" height="1.6"
+                         material="transparent: true; alphaTest: 0.1; side: double"></a-image>
+              </a-entity>
+            </a-entity>
+          </a-entity>
+        </a-entity>
       </a-marker>
 
       <a-entity camera></a-entity>
